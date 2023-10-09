@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <PageHeader />
+    <div class="content-container">
+      <PageHeader />
+    </div>
   </div>
 </template>
 
@@ -14,3 +16,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.content-container{
+  max-width: 1024px;
+  margin: 0 auto;
+}
+</style>
