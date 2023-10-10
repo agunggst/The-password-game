@@ -1,124 +1,32 @@
 <template>
   <div class="home">
-    <div class="content-container">
-      <PageHeader />
-      <div class="password-input">
-        <div class="label">
-          <div class="left"> </div>
-          <div class="right">{{ counter }}</div>
-        </div>
-        <input type="text" class="regular-input" v-model="password" placeholder="Type your password here . . .">
-      </div>
-      <div class="rules">
-        <div class="rule">
-          <div class="head">
-            <CloseIcon class="material-icon" size="14"/> <span>Rule 1</span>
-          </div>
-          <div class="body">
-            <p>Your password must be at least 5 characters.</p>
-          </div>
-        </div>
-        <div class="rule-done">
-          <div class="head">
-            <DoneIcon class="material-icon" size="14"/> <span>Rule 2</span>
-          </div>
-          <div class="body">
-            <p>Your password must be at least 5 characters.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <router-link to="/game">
+      <lottie-player :src="startJSON" loop autoplay mode="normal" class="start-icon"/>
+    </router-link>
   </div>
 </template>
 
 <script>
-import PageHeader from '@/components/Header.vue'
-import CloseIcon from 'vue-material-design-icons/Close.vue';
-import DoneIcon from 'vue-material-design-icons/Check.vue';
+import LottiePlayer from '@lottiefiles/lottie-player'
+import startJSON from '../assets/start-btn-anim.json'
 
 export default {
   name: 'HomePage',
   components: {
-    PageHeader,
-    CloseIcon,
-    DoneIcon
+    LottiePlayer
   },
   data () {
     return {
-      password: '',
-    }
-  },
-  computed: {
-    counter () {
-      return this.password.length
+      startJSON: startJSON
     }
   }
 }
 </script>
 <style scoped>
-.content-container{
-  max-width: 1024px;
-  margin: 0 auto;
-}
-.password-input, .rules{
-  padding-top: 150px;
-  margin: 0 auto;
+.start-icon{
   width: 400px;
-}
-.rules{
-  padding-top: 28px;
-}
-.label{
-  display: flex;
-  justify-content: space-between;
-  color: var(--regular-pink);
-}
-.regular-input{
-  width: calc(100% - 24px);
-  border: none;
-  background-color: var(--dark-blue);
-  font-size: 16px;
-  color: var(--cream);
-  margin-top: 8px;
-  padding: 12px;
-  border-radius: 8px;
-}
-.material-icon{
-  margin-top: 10px;
-}
-.rule, .rule-done{
-  /* background-color: var(--regular-pink); */
-  /* padding: 12px; */
-  border-radius: 8px;
-  box-shadow: 0px 0px 16px 0px rgba(253,240,240,0.75);
-  -webkit-box-shadow: 0px 0px 16px 0px rgba(253,240,240,0.75);
-  -moz-box-shadow: 0px 0px 16px 0px rgba(253,240,240,0.75);
-  margin-bottom: 16px;
-}
-.rule .head{
-  background-color: var(--dark-blue);
-  padding: 8px 12px;
-  color: var(--regular-pink);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.rule .body{
-  padding: 12px 12px;
-  background-color: var(--regular-pink);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-.rule-done .head{
-  background-color: var(--dark-blue);
-  padding: 8px 12px;
-  color: var(--regular-green);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.rule-done .body{
-  padding: 12px 12px;
-  background-color: var(--regular-green);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  margin: 0 auto;
+  padding-top: 150px;
+  cursor: pointer;
 }
 </style>

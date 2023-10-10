@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Game from '../views/Game.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'The Password Game',
+    name: 'Home',
+    meta: {
+      title: 'The Password Game'
+    },
     component: Home
+  },
+  {
+    path: '/game',
+    name: 'Game',
+    meta: {
+      title: 'The Password Game'
+    },
+    component: Game
   },
 ]
 
@@ -15,7 +27,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.name;
+  document.title = to.meta.title;
   next();
 });
 
